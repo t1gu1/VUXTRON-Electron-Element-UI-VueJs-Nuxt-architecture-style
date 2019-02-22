@@ -12,6 +12,7 @@
   }
 </script>
 
-<style>
-  /* CSS */
+<style lang="scss">
+  // Global scss
+  @import "@/assets/scss/main.scss";
 </style>
