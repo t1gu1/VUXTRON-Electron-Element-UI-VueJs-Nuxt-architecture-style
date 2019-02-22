@@ -84,3 +84,5 @@ typings/
 .serverless
 
 .idea
+
+\.history/

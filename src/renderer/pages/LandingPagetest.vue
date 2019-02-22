@@ -1,3 +1,9 @@
+<route-meta>
+  {
+    "layout": "test"  
+  }
+</route-meta>
+
 <template>
   <div>
     <h1>Popover TEST PAGE</h1>

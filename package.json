@@ -91,6 +91,7 @@
     "vue-auto-routing": "^0.3.0",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^15.2.4",
+    "vue-extend-layout": "^2.0.6",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.15.1",

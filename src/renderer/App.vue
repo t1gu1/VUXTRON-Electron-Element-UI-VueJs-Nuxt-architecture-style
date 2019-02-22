@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <vue-extend-layouts />
   </div>
 </template>
 
 <script>
+  import VueExtendLayouts from 'vue-extend-layout'
   export default {
-    name: 'test'
+    name: 'app',
+    components: { VueExtendLayouts }
   }
 </script>
 
