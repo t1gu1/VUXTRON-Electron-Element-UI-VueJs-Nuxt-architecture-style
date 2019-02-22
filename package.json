@@ -52,12 +52,12 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "element-ui": "^2.4.11",
-    "vue": "^2.5.16",
+    "element-ui": "^2.5.4",
+    "vue": "^2.6.7",
     "vue-electron": "^1.0.6",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
-    "vuex-electron": "^1.0.0"
+    "vue-router": "^3.0.2",
+    "vuex": "^3.1.0",
+    "vuex-electron": "^1.0.3"
   },
   "devDependencies": {
     "ajv": "^6.5.0",
