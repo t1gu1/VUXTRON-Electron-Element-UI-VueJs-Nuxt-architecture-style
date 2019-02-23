@@ -123,4 +123,4 @@ Edit package.json#build properties for custom build configuration.
 - Make a nice demo & take screenshoot for the git depo 💩
 - Add i18n
 
-If you have questions of suggestion i invite you to create an issue on github! ✌️
+If you have questions of suggestion I invite you to create an issue on Github! ✌️
