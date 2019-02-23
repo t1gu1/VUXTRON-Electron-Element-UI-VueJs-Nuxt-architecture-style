@@ -18,6 +18,14 @@ npm run dev
 
 ## Good to know ✨
 
+### Absolute path
+
+The caracter `@` in an import will be equal to `renderer` folder.
+
+Example: `@/components/test.vue`
+
+And you should always try to do this. (This is like nuxt too)
+
 ### Routing ⭐️
 
 I use [vue-auto-routing](https://github.com/ktsn/vue-auto-routing) to make the autorouting like nuxt
@@ -46,6 +54,11 @@ BUT it will use the `layout/default.vue` by default if you add nothing! 😃
 
 You really should go check [Element UI](https://element.eleme.io/#/en-US/component/installation) components.
 A really nice documentation is present with a ton of examples!
+
+### Working directory
+
+- You should only need to work in `src/renderer/`.
+- The electron build on `npm run build` will output in the folder `/build`.
 
 ## Most used commands 🐱
 
