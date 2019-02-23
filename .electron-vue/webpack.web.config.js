@@ -20,7 +20,14 @@ let webConfig = {
     rules: [
       {
         test: /\.scss$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader']
+        use: ['vue-style-loader', 'css-loader', {
+          loader: 'sass-loader',
+          options: {
+            data: `
+              @import "@/assets/scss/main.scss";
+            `
+          }
+        }]
       },
       {
         test: /\.sass$/,
