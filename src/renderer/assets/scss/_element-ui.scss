@@ -1,0 +1,36 @@
+/* ------------------------------------
+* ELEMENT UI VARIABLES REPLACEMENT    |
+----------------------------------- */
+
+/*
+* Check this link to know all avalaible element ui variables
+* https://github.com/ElemeFE/element/blob/dev/packages/theme-chalk/src/common/var.scss
+*/
+
+$--color-primary: #439;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------
+* ELEMENT UI VARIABLES END            |
+----------------------------------- */
+
+// This font-path is required and has to be before import
+$--font-path: "./../../../node_modules/element-ui/lib/theme-chalk/fonts";
+
+// The import has to be after variables
+@import "~element-ui/packages/theme-chalk/src/index";

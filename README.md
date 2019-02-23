@@ -55,6 +55,8 @@ BUT it will use the `layout/default.vue` by default if you add nothing! 😃
 You really should go check [Element UI](https://element.eleme.io/#/en-US/component/installation) components.
 A really nice documentation is present with a ton of examples!
 
+- You can edit all element variables here: `@/assets/scss/element-ui.scss`. An external link to these variables is present.
+
 ### Working directory
 
 - You should only need to work in `src/renderer/`.
@@ -131,7 +133,6 @@ Edit package.json#build properties for custom build configuration.
 
 ## TODO 👷
 
-- Change the import of Element UI with SCSS to change default variables and customise it!
 - Upgrade some packages (I upgrade some already!)
 - Make a nice demo & take screenshoot for the git depo 💩
 - Add i18n
