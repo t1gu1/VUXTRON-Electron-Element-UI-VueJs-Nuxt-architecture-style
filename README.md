@@ -1,6 +1,6 @@
 # 🔥 Electron + Element UI + Nuxt architecture like 🔥
 
-- ⚠️ Only the folder architecture, routing automatisation and layout automatisation is like nuxt. (But it's not)
+- ⚠️ Only the folder architecture, routing automatisation and layout automatisation is like nuxt. (But it's not nuxt)
 - [Element UI](https://element.eleme.io/#/en-US/component/installation) just cause we just ❤️ it!
 - Electron to make a desktop your app. ⚡️
 
