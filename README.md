@@ -138,5 +138,6 @@ Edit package.json#build properties for custom build configuration.
 - Upgrade some packages (I upgrade some already!)
 - Make a nice demo & take screenshoot for the git depo 💩
 - Add i18n
+- ⭐️ Try to make a npm package of this repo to let user only have the `renderer` folder and make the project maintenable/updatable ⭐️ (A lot of work to acheive that, but it's the nicest feature to do for the one who use this)
 
 If you have questions of suggestion I invite you to create an issue on Github! ✌️

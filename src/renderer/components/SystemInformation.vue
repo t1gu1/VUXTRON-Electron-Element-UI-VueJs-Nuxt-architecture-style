@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="title">Information</div>
+    <div class="title">Informations</div>
     <div class="items">
       <div class="item">
-        <div class="name">Path:</div>
+        <div class="name">Route Path:</div>
         <div class="value">{{ path }}</div>
       </div>
       <div class="item">
@@ -11,26 +11,39 @@
         <div class="value">{{ name }}</div>
       </div>
       <div class="item">
-        <div class="name">Vue.js:</div>
+        <div class="name">Vue.js version:</div>
         <div class="value">{{ vue }}</div>
       </div>
       <div class="item">
-        <div class="name">Electron:</div>
+        <div class="name">Electron version:</div>
         <div class="value">{{ electron }}</div>
       </div>
       <div class="item">
-        <div class="name">Node:</div>
+        <div class="name">Node version:</div>
         <div class="value">{{ node }}</div>
       </div>
       <div class="item">
         <div class="name">Platform:</div>
         <div class="value">{{ platform }}</div>
       </div>
+      <div class="item">
+        <div class="name">Project directory (Full path):</div>
+        <div class="value">{{ projectDir }}</div>
+      </div>
+      <div class="item">
+        <div class="name">Component directory (absolute):</div>
+        <div class="value">{{ absoluteDir }}</div>
+      </div>
+      <div class="item">
+        <div class="name">Component directory (relative):</div>
+        <div class="value">{{ relativeDir }}</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  const path = require('path')
   export default {
     data () {
       return {
@@ -39,7 +52,10 @@
         node: process.versions.node,
         path: this.$route.path,
         platform: require('os').platform(),
-        vue: require('vue/package.json').version
+        vue: require('vue/package.json').version,
+        projectDir: path.resolve("./"), 
+        relativeDir: __dirname,
+        absoluteDir: path.resolve(__dirname), 
       }
     }
   }
