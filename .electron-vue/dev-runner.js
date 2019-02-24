@@ -19,7 +19,7 @@ let hotMiddleware
 function logStats (proc, data) {
   let log = ''
 
-  log += chalk.yellow.bold(`┏ ${proc} Process ${new Array((19 - proc.length) + 1).join('-')}`)
+  log += chalk.magenta.bold(`┏ ${proc} Process ${new Array((19 - proc.length) + 1).join('-')}`)
   log += '\n\n'
 
   if (typeof data === 'object') {
@@ -33,7 +33,7 @@ function logStats (proc, data) {
     log += `  ${data}\n`
   }
 
-  log += '\n' + chalk.yellow.bold(`┗ ${new Array(28 + 1).join('-')}`) + '\n'
+  log += '\n' + chalk.magenta.bold(`┗ ${new Array(28 + 1).join('-')}`) + '\n'
 
   console.log(log)
 }
@@ -132,7 +132,7 @@ function startElectron () {
     electronLog(data, 'blue')
   })
   electronProcess.stderr.on('data', data => {
-    electronLog(data, 'red')
+    electronLog(data, 'magenta')
   })
 
   electronProcess.on('close', () => {
@@ -167,12 +167,12 @@ function greeting () {
 
   if (text) {
     say(text, {
-      colors: ['yellow'],
+      colors: ['magenta'],
       font: 'simple3d',
       space: false
     })
-  } else console.log(chalk.yellow.bold('\n  electron-vue'))
-  console.log(chalk.blue('  getting ready...') + '\n')
+  } else console.log(chalk.magenta.bold('\n  electron-vue'))
+  console.log(chalk.magenta.bold('  Getting ready...') + '\n')
 }
 
 function init () {
