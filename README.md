@@ -4,7 +4,11 @@
 - [Element UI](https://element.eleme.io/#/en-US/component/installation) just cause we just ❤️ it!
 - Electron to make a desktop your app. ⚡️
 
+------------------------------
+
 <p align="center"><img src="https://github.com/t1gu1/Electron-Element-UI-VueJs-Nuxt-architecture-style/raw/master/src/renderer/assets/images/electron-element-ui-vue-demo.gif"></p>
+
+------------------------------
 
 ## Build Setup 🐣
 
