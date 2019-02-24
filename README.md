@@ -64,6 +64,8 @@ A really nice documentation is present with a ton of examples!
 
 ## Most used commands 🐱
 
+⚠️ If you are on windows and you use WSL, you have to `npm install electron` with windows CMD to be able to build the app.
+
 - `npm run dev`
 - `npm run build`
 - `npm run build:web`
