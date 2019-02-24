@@ -34,7 +34,7 @@
     }, 
 
     mounted() {
-
+      //
     },
 
     data() {
@@ -49,10 +49,8 @@
         // ...
       }),
       handleSelect(key, keyPath) {
-        if(key === "" || key === "fake") return false
-        console.log(key, keyPath);
-        //this.changeIndex({activeIndex: key});
-        this.$store.dispatch('menu/changeIndex', {activeIndex: key})
+        if(key === "" || key === "fake") return false       
+        // ! A watcher is in the App.vue to dispatch route change cause, route change can happend from link in a page
         this.$router.push(key)
       }
     }

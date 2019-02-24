@@ -5,7 +5,7 @@
 
     <el-row :gutter="20">
       <el-col :xs="24" :sm="12" :md="6" v-for="iteration in 4" :key="iteration">
-        <el-card class="demo-item" :body-style="{ padding: '0px' }">
+        <el-card class="demo-item" shadow="hover" :body-style="{ padding: '0px' }">
           <img src="@/assets/images/hamburger.png" class="image">
           <div style="padding: 14px;">
             <span>Yummy hamburger {{iteration}}</span>
@@ -22,19 +22,19 @@
 
     <div>
       <el-popover
-              placement="top-start"
-              title="Title"
-              width="200"
-              trigger="hover"
-              content="this is content, this is content, this is content">
+        placement="top-start"
+        title="Title"
+        width="200"
+        trigger="hover"
+        content="this is content, this is content, this is content">
         <el-button slot="reference">Hover to activate</el-button>
       </el-popover>
     </div>
 
     <h2>Router-link</h2>
 
-    <router-link tag="div" to="/about">
-      <a>About</a>
+    <router-link to="/about">
+      <el-button>About</el-button>
     </router-link>
 
     <h2>Tooltip</h2>
