@@ -11,8 +11,4 @@
     components: { VueExtendLayouts }
   }
 </script>
-
-<style lang="scss">
-
-</style>
  
