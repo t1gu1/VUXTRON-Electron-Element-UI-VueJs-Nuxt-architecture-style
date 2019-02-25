@@ -9,6 +9,8 @@
 
 ------------------------------
 
+## Demo of an Electron app
+
 <p align="center"><img src="https://github.com/t1gu1/Electron-Element-UI-VueJs-Nuxt-architecture-style/raw/master/src/renderer/assets/images/electron-element-ui-vue-demo.gif"></p>
 
 ------------------------------
