@@ -26,6 +26,8 @@
         <div class="name">Platform:</div>
         <div class="value">{{ platform }}</div>
       </div>
+
+      <h2>That part is different on Build. Test it!</h2>
       <div class="item">
         <div class="name">Project directory (Full path):</div>
         <div class="value">{{ projectDir }}</div>
