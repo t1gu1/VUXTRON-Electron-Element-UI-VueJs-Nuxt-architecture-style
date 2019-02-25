@@ -1,8 +1,11 @@
-# 🔥 Electron + Element UI + VueJS + Nuxt architecture like 🔥
+# 🔥 Vuxtron 🔥
+
+## 🔥 Electron + Element UI + VueJS + Nuxt architecture like 🔥
 
 - ⚠️ Only the folder architecture, routing automatisation and layout automatisation is like nuxt. (But it's not nuxt)
 - [Element UI](https://element.eleme.io/#/en-US/component/installation) just cause we just ❤️ it!
 - Electron to make a desktop your app. ⚡️
+- You can use this link to know more about electron-vue: <https://simulatedgreg.gitbooks.io/electron-vue/content/en/>
 
 ------------------------------
 
@@ -139,8 +142,12 @@ Edit package.json#build properties for custom build configuration.
 }
 ```
 
-## TODO 👷💩
+## TODO 👷
 
 - ⭐️ Try to make a npm package of this repo to let user only have the `renderer` folder and make the project maintenable/updatable ⭐️ (A lot of work to acheive that, but it's the nicest feature to do for the one who use this)
+
+## Know issues 💩
+
+- build:web doesn't seems working
 
 If you have questions of suggestion I invite you to create an issue on Github! ✌️

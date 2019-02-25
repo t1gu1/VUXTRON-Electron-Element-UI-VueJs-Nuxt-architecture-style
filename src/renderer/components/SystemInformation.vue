@@ -45,19 +45,19 @@
 </template>
 
 <script>
-  const path = require('path')
+
   export default {
     data () {
       return {
-        electron: process.versions.electron,
+        electron: !process.env.IS_WEB ? process.versions.electron : "",
         name: this.$route.name,
-        node: process.versions.node,
+        node: !process.env.IS_WEB ? process.versions.node : "",
         path: this.$route.path,
-        platform: require('os').platform(),
-        vue: require('vue/package.json').version,
-        projectDir: path.resolve("./"), 
-        relativeDir: __dirname,
-        absoluteDir: path.resolve(__dirname), 
+        platform: !process.env.IS_WEB ? require('os').platform() : "",
+        vue: !process.env.IS_WEB ? require('vue/package.json').version : "",
+        projectDir: !process.env.IS_WEB ? require('path').resolve("./"): "", 
+        relativeDir: !process.env.IS_WEB ? __dirname : "",
+        absoluteDir: !process.env.IS_WEB ? require('path').resolve(__dirname) : "", 
       }
     }
   }
