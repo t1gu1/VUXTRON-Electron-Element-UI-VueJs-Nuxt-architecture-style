@@ -146,10 +146,18 @@ Edit package.json#build properties for custom build configuration.
 
 ## TODO 👷
 
-- ⭐️ Try to make a npm package of this repo to let user only have the `renderer` folder and make the project maintenable/updatable ⭐️ (A lot of work to acheive that, but it's the nicest feature to do for the one who use this)
+- ⭐️ Try to make a npm package of this repo to let user only have the `renderer` folder and make the project maintenable/updatable ⭐️ (A lot of work to achieve that, but it's the nicest feature to do for the one who use this)
 
 ## Know issues 💩
 
 - build:web doesn't seems working
 
 If you have questions of suggestion I invite you to create an issue on Github! ✌️
+
+<br/><br/>
+<div align="center">
+
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)](http://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/makes-people-smile.svg)](http://forthebadge.com)
+
+</div>
