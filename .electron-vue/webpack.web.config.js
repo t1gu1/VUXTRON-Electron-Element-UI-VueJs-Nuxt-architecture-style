@@ -1,8 +1,11 @@
 'use strict'
 
 process.env.BABEL_ENV = 'web'
+process.env.IS_NODE_MODULE = false
+process.env.IS_NODE_MODULE_PATH = ''
 
 const path = require('path')
+const fs = require('fs')
 const webpack = require('webpack')
 
 const BabiliWebpackPlugin = require('babili-webpack-plugin')
@@ -11,10 +14,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 
+fs.readdirSync(path.join(__dirname, '../../')).forEach(file => {
+  if(file === "node_modules") {
+    process.env.IS_NODE_MODULE = true
+    process.env.IS_NODE_MODULE_PATH = '../../'
+  }
+});
+
 let webConfig = {
   devtool: '#cheap-module-eval-source-map',
   entry: {
-    web: path.join(__dirname, '../src/renderer/main.js')
+    web: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../src/renderer/main.js')
   },
   module: {
     rules: [
@@ -48,7 +58,7 @@ let webConfig = {
       {
         test: /\.js$/,
         use: 'babel-loader',
-        include: [ path.resolve(__dirname, '../src/renderer') ],
+        include: [ path.resolve(__dirname, process.env.IS_NODE_MODULE_PATH + '../src/renderer') ],
         exclude: /node_modules/
       },
       {
@@ -108,14 +118,14 @@ let webConfig = {
   ],
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, '../dist/web')
+    path: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../dist/web')
   },
   node: {
     fs: 'empty',
   },
   resolve: {
     alias: {
-      '@': path.join(__dirname, '../src/renderer'),
+      '@': path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../src/renderer'),
       'vue$': 'vue/dist/vue.esm.js'
     },
     extensions: ['.js', '.vue', '.json', '.css']
@@ -133,8 +143,8 @@ if (process.env.NODE_ENV === 'production') {
     new BabiliWebpackPlugin(),
     new CopyWebpackPlugin([
       {
-        from: path.join(__dirname, '../static'),
-        to: path.join(__dirname, '../dist/web/static'),
+        from: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../static'),
+        to: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../dist/web/static'),
         ignore: ['.*']
       }
     ]),

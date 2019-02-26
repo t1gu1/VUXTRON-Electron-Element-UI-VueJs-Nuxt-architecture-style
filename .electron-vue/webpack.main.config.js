@@ -1,13 +1,23 @@
 'use strict'
 
 process.env.BABEL_ENV = 'main'
+process.env.IS_NODE_MODULE = false
+process.env.IS_NODE_MODULE_PATH = ''
 
 const path = require('path')
+const fs = require('fs')
 const { dependencies } = require('../package.json')
 const webpack = require('webpack')
 
 const BabiliWebpackPlugin = require('babili-webpack-plugin')
 const VueAutoRoutingPlugin = require('vue-auto-routing/lib/webpack-plugin')
+
+fs.readdirSync(path.join(__dirname, '../../')).forEach(file => {
+  if(file === "node_modules") {
+    process.env.IS_NODE_MODULE = true
+    process.env.IS_NODE_MODULE_PATH = '../../'
+  }
+});
 
 let mainConfig = {
   entry: {
@@ -42,7 +52,7 @@ let mainConfig = {
     new webpack.NoEmitOnErrorsPlugin(),
     new VueAutoRoutingPlugin({
       // Path to the directory that contains your page components.
-      pages: path.join(__dirname,'../src/renderer/pages'),
+      pages: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../src/renderer/pages'),
 
       // A string that will be added to importing component path (default @/pages/).
       importPrefix: '@/pages/'
@@ -60,7 +70,7 @@ let mainConfig = {
 if (process.env.NODE_ENV !== 'production') {
   mainConfig.plugins.push(
     new webpack.DefinePlugin({
-      '__static': `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`
+      '__static': `"${path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../static').replace(/\\/g, '\\\\')}"`
     })
   )
 }

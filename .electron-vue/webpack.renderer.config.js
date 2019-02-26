@@ -1,9 +1,11 @@
 'use strict'
 
 process.env.BABEL_ENV = 'renderer'
+process.env.IS_NODE_MODULE = false
+process.env.IS_NODE_MODULE_PATH = ''
 
 const path = require('path')
-const { dependencies } = require('../package.json')
+const fs = require('fs')
 const webpack = require('webpack')
 
 const BabiliWebpackPlugin = require('babili-webpack-plugin')
@@ -11,6 +13,15 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
+
+fs.readdirSync(path.join(__dirname, '../../')).forEach(file => {
+  if(file === "node_modules") {
+    process.env.IS_NODE_MODULE = true
+    process.env.IS_NODE_MODULE_PATH = '../../'
+  }
+});
+
+const { dependencies } = require(process.env.IS_NODE_MODULE_PATH + '../package.json')
 
 /**
  * List of node_modules to include in webpack bundle
@@ -24,7 +35,7 @@ let whiteListedModules = ['vue']
 let rendererConfig = {
   devtool: '#cheap-module-eval-source-map',
   entry: {
-    renderer: path.join(__dirname, '../src/renderer/main.js')
+    renderer: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../src/renderer/main.js')
   },
   externals: [
     ...Object.keys(dependencies || {}).filter(d => !whiteListedModules.includes(d))
@@ -136,12 +147,12 @@ let rendererConfig = {
   output: {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
-    path: path.join(__dirname, '../dist/electron')
+    path: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../dist/electron')
   },
   resolve: {
     alias: {
-      '@': path.join(__dirname, '../src/renderer'),
-      'styles': path.join(__dirname, '../src/renderer/assets/scss/main.scss'),
+      '@': path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../src/renderer'),
+      'styles': path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../src/renderer/assets/scss/main.scss'),
       'vue$': 'vue/dist/vue.esm.js'
     },
     extensions: ['.js', '.vue', '.json', '.css', '.node']
@@ -155,7 +166,7 @@ let rendererConfig = {
 if (process.env.NODE_ENV !== 'production') {
   rendererConfig.plugins.push(
     new webpack.DefinePlugin({
-      '__static': `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`
+      '__static': `"${path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../static').replace(/\\/g, '\\\\')}"`
     })
   )
 }
@@ -170,8 +181,8 @@ if (process.env.NODE_ENV === 'production') {
     new BabiliWebpackPlugin(),
     new CopyWebpackPlugin([
       {
-        from: path.join(__dirname, '../static'),
-        to: path.join(__dirname, '../dist/electron/static'),
+        from: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../static'),
+        to: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../dist/electron/static'),
         ignore: ['.*']
       }
     ]),
