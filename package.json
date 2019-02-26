@@ -1,9 +1,9 @@
 {
-  "name": "test",
+  "name": "vuxtron",
   "version": "0.0.1",
   "author": "Guillaume Huard Hughes <guillaumehuardhughes@gmail.com>",
-  "description": "An electron-vue project",
-  "license": null,
+  "description": "An electron-vue project with Electron + Element UI + VueJS + Nuxt architecture like",
+  "license": "MIT",
   "main": "./dist/electron/main.js",
   "scripts": {
     "build": "node .electron-vue/build.js && electron-builder",
