@@ -14,14 +14,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 
-fs.readdirSync(path.join(__dirname, '../../')).forEach(file => {
+fs.readdirSync(path.join(__dirname, '../../../')).forEach(file => {
   if(file === "node_modules") {
     process.env.IS_NODE_MODULE = true
     process.env.IS_NODE_MODULE_PATH = '../../'
   }
 });
 
-const { dependencies } = require(process.env.IS_NODE_MODULE_PATH + '../package.json')
+const { dependencies } = require('../package.json')
+//const { projectDependencies } = process.env.IS_NODE_MODULE ? require(process.env.IS_NODE_MODULE_PATH + '../package.json') : null
 
 /**
  * List of node_modules to include in webpack bundle
@@ -38,7 +39,8 @@ let rendererConfig = {
     renderer: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../src/renderer/main.js')
   },
   externals: [
-    ...Object.keys(dependencies || {}).filter(d => !whiteListedModules.includes(d))
+    ...Object.keys(dependencies || {}).filter(d => !whiteListedModules.includes(d)),
+    //...Object.keys(projectDependencies || {}).filter(d => !whiteListedModules.includes(d))
   ],
   module: {
     rules: [
@@ -138,7 +140,7 @@ let rendererConfig = {
         removeComments: true
       },
       nodeModules: process.env.NODE_ENV !== 'production'
-        ? path.resolve(__dirname, '../node_modules')
+        ? path.resolve(__dirname, process.env.IS_NODE_MODULE_PATH + '../node_modules')
         : false
     }),
     new webpack.HotModuleReplacementPlugin(),

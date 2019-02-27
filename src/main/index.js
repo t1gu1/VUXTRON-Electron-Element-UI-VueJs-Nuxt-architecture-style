@@ -4,14 +4,26 @@ import { app, BrowserWindow } from 'electron'
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
  */
+
+process.env.IS_NODE_MODULE = false
+process.env.IS_NODE_MODULE_PATH = ''
+const path = require('path')
+const fs = require('fs')
+fs.readdirSync(path.join(__dirname, '../../../')).forEach(file => {
+  if(file === "node_modules") {
+    process.env.IS_NODE_MODULE = true
+    process.env.IS_NODE_MODULE_PATH = '../../'
+  }
+});
+
 if (process.env.NODE_ENV !== 'development') {
-  global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+  global.__static = require('path').join(__dirname, process.env.IS_NODE_MODULE_PATH + '/static').replace(/\\/g, '\\\\')
 }
 
 let mainWindow
 const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
-  : `file://${__dirname}/index.html`
+  : `file://${process.env.IS_NODE_MODULE_PATH + __dirname}/index.html`
 
 function createWindow () {
   /**

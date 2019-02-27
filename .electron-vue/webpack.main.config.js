@@ -1,23 +1,23 @@
 'use strict'
 
 process.env.BABEL_ENV = 'main'
-process.env.IS_NODE_MODULE = false
-process.env.IS_NODE_MODULE_PATH = ''
 
-const path = require('path')
-const fs = require('fs')
-const { dependencies } = require('../package.json')
 const webpack = require('webpack')
 
 const BabiliWebpackPlugin = require('babili-webpack-plugin')
 const VueAutoRoutingPlugin = require('vue-auto-routing/lib/webpack-plugin')
 
-fs.readdirSync(path.join(__dirname, '../../')).forEach(file => {
+process.env.IS_NODE_MODULE = false
+process.env.IS_NODE_MODULE_PATH = ''
+const path = require('path')
+const fs = require('fs')
+fs.readdirSync(path.join(__dirname, '../../../')).forEach(file => {
   if(file === "node_modules") {
     process.env.IS_NODE_MODULE = true
     process.env.IS_NODE_MODULE_PATH = '../../'
   }
 });
+const { dependencies } = require('../package.json')
 
 let mainConfig = {
   entry: {
@@ -46,13 +46,13 @@ let mainConfig = {
   output: {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
-    path: path.join(__dirname, '../dist/electron')
+    path: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../dist/electron')
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new VueAutoRoutingPlugin({
       // Path to the directory that contains your page components.
-      pages: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../src/renderer/pages'),
+      pages: path.join(__dirname, '../src/renderer/pages'),
 
       // A string that will be added to importing component path (default @/pages/).
       importPrefix: '@/pages/'

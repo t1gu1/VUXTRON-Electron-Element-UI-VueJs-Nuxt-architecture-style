@@ -14,7 +14,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 
-fs.readdirSync(path.join(__dirname, '../../')).forEach(file => {
+fs.readdirSync(path.join(__dirname, '../../../')).forEach(file => {
   if(file === "node_modules") {
     process.env.IS_NODE_MODULE = true
     process.env.IS_NODE_MODULE_PATH = '../../'

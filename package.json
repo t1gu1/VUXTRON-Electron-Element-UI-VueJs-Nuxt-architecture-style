@@ -1,6 +1,6 @@
 {
   "name": "vuxtron",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "author": "Guillaume Huard Hughes <guillaumehuardhughes@gmail.com>",
   "description": "An electron-vue project with Electron + Element UI + VueJS + Nuxt architecture like",
   "license": "MIT",

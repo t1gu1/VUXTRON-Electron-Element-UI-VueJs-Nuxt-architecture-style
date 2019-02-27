@@ -2,7 +2,6 @@
 
 const chalk = require('chalk')
 const electron = require('electron')
-const path = require('path')
 const { say } = require('cfonts')
 const { spawn } = require('child_process')
 const webpack = require('webpack')
@@ -15,6 +14,17 @@ const rendererConfig = require('./webpack.renderer.config')
 let electronProcess = null
 let manualRestart = false
 let hotMiddleware
+
+process.env.IS_NODE_MODULE = false
+process.env.IS_NODE_MODULE_PATH = ''
+const path = require('path')
+const fs = require('fs')
+fs.readdirSync(path.join(__dirname, '../../../')).forEach(file => {
+  if(file === "node_modules") {
+    process.env.IS_NODE_MODULE = true
+    process.env.IS_NODE_MODULE_PATH = '../../'
+  }
+});
 
 function logStats (proc, data) {
   let log = ''
@@ -62,7 +72,7 @@ function startRenderer () {
     const server = new WebpackDevServer(
       compiler,
       {
-        contentBase: path.join(__dirname, '../'),
+        contentBase: path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../'),
         quiet: true,
         before (app, ctx) {
           app.use(hotMiddleware)
@@ -116,7 +126,7 @@ function startMain () {
 function startElectron () {
   var args = [
     '--inspect=5858',
-    path.join(__dirname, '../dist/electron/main.js')
+    path.join(__dirname, process.env.IS_NODE_MODULE_PATH + '../dist/electron/main.js')
   ]
 
   // detect yarn or npm and process commandline args accordingly
