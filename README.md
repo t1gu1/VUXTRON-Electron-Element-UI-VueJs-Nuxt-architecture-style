@@ -146,6 +146,7 @@ Edit package.json#build properties for custom build configuration.
 
 ## TODO 👷
 
+- Add Cordova to build mobile app
 - ⭐️ Try to make a npm package of this repo to let user only have the `renderer` folder and make the project maintenable/updatable ⭐️ (A lot of work to achieve that, but it's the nicest feature to do for the one who use this)
 
 ## Know issues 💩
