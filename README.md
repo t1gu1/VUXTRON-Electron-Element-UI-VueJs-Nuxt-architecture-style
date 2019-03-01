@@ -151,7 +151,7 @@ Edit package.json#build properties for custom build configuration.
 
 ## Know issues 💩
 
-- build:web doesn't seems working
+- Nothing for the moment
 
 If you have questions of suggestion I invite you to create an issue on Github! ✌️
 
