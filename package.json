@@ -22,9 +22,7 @@
 		"directories": {
 			"output": "build"
 		},
-		"files": [
-			"dist/electron/**/*"
-		],
+		"files": [ "dist/electron/**/*" ],
 		"dmg": {
 			"contents": [
 				{
