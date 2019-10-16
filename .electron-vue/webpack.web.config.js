@@ -23,9 +23,10 @@ let webConfig = {
         use: ['vue-style-loader', 'css-loader', {
           loader: 'sass-loader',
           options: {
-            data: `
-              @import "@/assets/scss/main.scss";
-            `
+            prependData: '@import "main.scss";',
+            sassOptions: {
+              includePaths: [path.resolve(__dirname, '../src/renderer/assets/scss')]
+            }
           }
         }]
       },

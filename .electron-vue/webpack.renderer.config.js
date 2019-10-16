@@ -19,6 +19,7 @@ const { VueLoaderPlugin } = require('vue-loader')
  * that provide pure *.vue files that need compiling
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/webpack-configurations.html#white-listing-externals
  */
+console.log("PATHHHHH ETSTESTETSET", path.resolve(__dirname, '../src/renderer/assets/scss'));
 let whiteListedModules = ['vue']
 
 let rendererConfig = {
@@ -36,9 +37,10 @@ let rendererConfig = {
         use: ['vue-style-loader', 'css-loader', {
           loader: 'sass-loader',
           options: {
-            data: `
-              @import "@/assets/scss/main.scss";
-            `
+            prependData: '@import "main.scss";',
+            sassOptions: {
+              includePaths: [path.resolve(__dirname, '../src/renderer/assets/scss')]
+            }
           }
         }]
       },

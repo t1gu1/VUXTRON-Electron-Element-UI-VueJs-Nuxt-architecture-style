@@ -61,6 +61,9 @@
 </script>
 
 <style lang="scss">
+  h2 {
+    color: $--color-primary;
+  }
   //
   .image {
     width: 100%;
