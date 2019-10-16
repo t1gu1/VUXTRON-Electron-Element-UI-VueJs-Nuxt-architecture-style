@@ -103,7 +103,7 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
-    "url-loader": "^1.1.2",
+    "url-loader": "^2.2.0",
     "vue-auto-routing": "^0.4.0",
     "vue-extend-layout": "^2.0.6",
     "vue-html-loader": "^1.2.4",
