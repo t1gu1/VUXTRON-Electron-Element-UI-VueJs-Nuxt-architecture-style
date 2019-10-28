@@ -17,6 +17,8 @@
 
 ## Build Setup 🐣
 
+Works with node 12+
+
 ``` bash
 git clone https://github.com/t1gu1/electron-nuxt-style.git
 
