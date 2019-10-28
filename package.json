@@ -6,6 +6,7 @@
 	"license": null,
 	"main": "./dist/electron/main.js",
 	"scripts": {
+		"preinstall": "npx npm-force-resolutions",
 		"build": "node .electron-vue/build.js && electron-builder",
 		"build:dir": "node .electron-vue/build.js && electron-builder --dir",
 		"build:clean": "cross-env BUILD_TARGET=clean node .electron-vue/build.js",
@@ -115,5 +116,9 @@
 		"webpack-dev-server": "^3.9.0",
 		"webpack-hot-middleware": "^2.25.0",
 		"webpack-merge": "^4.2.2"
+	},
+	"resolutions": {
+		"clean-css": "4.2.1",
+		"lodash.merge": "4.6.2"
 	}
 }
