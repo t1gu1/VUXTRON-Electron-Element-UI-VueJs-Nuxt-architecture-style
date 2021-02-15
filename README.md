@@ -1,3 +1,5 @@
+!! Use something like Flutter or React Expo instead !!
+
 # 🔥 Vuxtron 🔥
 
 ## 🔥 Electron + Element UI + VueJS + Nuxt architecture like 🔥
